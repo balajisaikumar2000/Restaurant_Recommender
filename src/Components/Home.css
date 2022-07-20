@@ -35,3 +35,11 @@ input[type="text"] {
   font-size: large;
   border-radius: 2px;
 }
+.search {
+  display: flex;
+  flex-direction: row;
+}
+.searchIcon {
+  width: 5%;
+  height: 5%;
+}

@@ -1,0 +1,59 @@
+body {
+  color: white;
+  /* background-image: url("../assets/bg_5.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* overflow-y: hidden; */
+  color: black;
+}
+.restaurantsHome {
+  background-image: url("../assets/bg_6.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+.restaurantsList {
+  margin-top: 10%;
+  margin-left: 14%;
+  margin-right: 14%;
+  width: 80%;
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  background-color: rgb(137, 222, 202);
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.imgLink {
+  width: 12%;
+  height: 20%;
+}
+.title {
+  width: 30%;
+  color: black;
+  font-size: larger;
+}
+.name {
+  color: black;
+}
+.listItems {
+  color: black;
+}
+.dataItem {
+  width: 100%;
+  border: 1px solid;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px -8px black;
+  margin-top: 10px;
+  background-color: grey;
+  height: 120px;
+  /* padding: 10px 10px; */
+}

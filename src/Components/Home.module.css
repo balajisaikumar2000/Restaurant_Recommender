@@ -20,6 +20,9 @@ body {
   position: fixed;
   width: 100%;
   justify-content: start;
+  align-items: center;
+  height: max-content;
+
   /* background-color: aqua; */
 }
 
@@ -64,6 +67,7 @@ input:focus {
   /* border: 5px; */
   border-color: rgb(248, 115, 115);
 }
+
 .searchBlock {
   margin-top: -2px;
   width: 7%;
@@ -97,7 +101,6 @@ input:focus {
   cursor: pointer;
   text-align: start;
   margin: 2px 0;
-  border-bottom: 1px solid;
   font-size: large;
 }
 .dropdown:empty {
@@ -107,4 +110,38 @@ input:focus {
   width: 280px;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 723px) {
+  .homeDiv {
+    flex-direction: column;
+    background-image: url("../assets/mbg_1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .navBar {
+    height: max-content;
+  }
+  .content {
+    margin-top: 60%;
+  }
+  .title {
+    width: 40%;
+    font-size: small;
+  }
+  .para {
+    font-size: x-large;
+  }
+  .mobiImg {
+    height: 425%;
+    width: 425%;
+  }
+  .dropdownRow {
+    font-size: medium;
+    color: black;
+  }
+  .imgLink {
+    width: 20%;
+    height: 20%;
+  }
 }

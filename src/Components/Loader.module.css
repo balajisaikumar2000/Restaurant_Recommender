@@ -1,7 +1,7 @@
 .loadingHome {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 .loadingName {
   margin: 15% 45%;
@@ -121,4 +121,12 @@
 .buildingBlocks div:nth-child(7):after {
   -webkit-animation-delay: 1.05s;
   animation-delay: 1.05s;
+}
+@media screen and (max-width: 723px) {
+  .loadingName {
+    margin: 60% 35%;
+  }
+  .buildingBlocks {
+    margin: -40% 50%;
+  }
 }

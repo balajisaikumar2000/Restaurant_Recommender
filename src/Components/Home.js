@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import data from "./data.json";
 
@@ -15,8 +15,8 @@ function Home() {
   const onSearch = (searchTerm) => {
     setValue(searchTerm);
     // our api to fetch the search result
-    console.log("search:-", searchTerm);
-    console.log("from:=", value);
+    // console.log("search:-", searchTerm);
+    // console.log("from:=", value);
   };
   return (
     <div className={classes.homeDiv}>
@@ -76,7 +76,7 @@ function Home() {
               style={{ display: "inline-block" }}
             >
               <div onClick={() => onSearch(value)}>
-                <img src={img2} alt="none" />
+                <img src={img2} alt="none" className={classes.mobiImg} />
               </div>
             </Link>
           </div>

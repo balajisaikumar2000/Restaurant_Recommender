@@ -30,7 +30,9 @@ body {
   position: fixed;
   width: 100%;
   color: white;
-  background-color: rgb(78, 11, 11);
+  background-color: #4e0b0b;
+  align-items: center;
+  height: max-content;
   /* background-color: rgb(137, 222, 202); */
 }
 img {
@@ -58,15 +60,36 @@ img {
 }
 .dataItem {
   width: 100%;
-  border: 1px solid;
+  /* border: 1px solid; */
   border-radius: 10px;
   box-shadow: 0px 0px 15px -8px black;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: white;
+  /* background-color: white; */
   height: max-content;
-  color: black;
+  color: white;
   padding: 2px 5px;
+  background: hsla(0, 75%, 17%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(0, 75%, 17%, 1) 0%,
+    hsla(5, 78%, 35%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(0, 75%, 17%, 1) 0%,
+    hsla(5, 78%, 35%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(0, 75%, 17%, 1) 0%,
+    hsla(5, 78%, 35%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4E0B0B", endColorstr="#9D1E13", GradientType=1 );
 }
 .categories {
   font-weight: bold;
@@ -76,4 +99,61 @@ img {
 }
 .load {
   color: black;
+}
+.cityTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 40%;
+}
+.imgg {
+  width: 100%;
+  height: 50%;
+}
+.locationImage {
+  width: 6%;
+  margin-top: 2%;
+  margin-right: 2%;
+}
+@media screen and (max-width: 723px) {
+  .restaurantsHome {
+    background-image: url("../assets/mbg_3.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navBar {
+    padding: 5px 5px;
+  }
+  .title {
+    width: 120%;
+    font-size: x-small;
+  }
+  .imgLink {
+    width: 60%;
+    height: 60%;
+  }
+  .cityTitle {
+    margin-left: 10%;
+    margin-right: 5%;
+    font-size: x-small;
+  }
+  .imgg {
+    width: 100%;
+    height: 40%;
+  }
+  .locationImage {
+    width: 14%;
+    height: 20%;
+    margin-top: 2%;
+    margin-right: 2%;
+  }
+  .restaurantsList {
+    margin-top: 25%;
+  }
 }

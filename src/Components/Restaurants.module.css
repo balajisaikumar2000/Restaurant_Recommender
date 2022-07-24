@@ -7,26 +7,37 @@ body {
   color: black;
 }
 .restaurantsHome {
-  background-image: url("../assets/bg_6.jpg");
+  /* background-image: url("../assets/bg_8.jpg");
   min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed; */
   color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+.second {
+  background-image: url("../assets/bg_8.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .restaurantsList {
   margin-top: 10%;
-  margin-left: 14%;
-  margin-right: 14%;
+  margin-left: 10%;
+  margin-right: 15%;
   width: 80%;
+  /* height: 80vh; */
 }
 .navBar {
   display: flex;
   flex-direction: row;
   position: fixed;
   width: 100%;
-  background-color: rgb(137, 222, 202);
+  color: white;
+  background-color: rgb(78, 11, 11);
+  /* background-color: rgb(137, 222, 202); */
 }
 img {
   width: 100%;
@@ -38,11 +49,15 @@ img {
 }
 .title {
   width: 30%;
-  color: black;
+  color: white;
   font-size: larger;
 }
 .name {
-  color: black;
+  margin-top: 10%;
+  color: white;
+  margin-left: 30%;
+  margin-right: 30%;
+  position: fixed;
 }
 .listItems {
   color: black;
@@ -53,7 +68,15 @@ img {
   border-radius: 10px;
   box-shadow: 0px 0px 15px -8px black;
   margin-top: 10px;
-  background-color: grey;
-  height: 120px;
-  /* padding: 10px 10px; */
+  margin-bottom: 10px;
+  background-color: white;
+  height: max-content;
+  color: black;
+  padding: 2px 5px;
+}
+.categories {
+  font-weight: bold;
+}
+.restaurantNames {
+  font-weight: bold;
 }

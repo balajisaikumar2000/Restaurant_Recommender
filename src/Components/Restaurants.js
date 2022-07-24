@@ -8,59 +8,66 @@ import img from "../assets/head_bg.png";
 
 function Restaurants() {
   const [conHtml, setConHtml] = useState("");
-  useEffect(()=>{
+  useEffect(() => {
     rawData();
-  },[])
+  }, []);
 
   const rawData = () => {
-    return axios
+    axios
       .get(
         "https://www.tripadvisor.in/Restaurants-g297628-Bengaluru_Bangalore_District_Karnataka.html"
       )
       .then((res) => {
-        return res.data;
+        setConHtml(res.data);
       });
   };
-  const data = rawData();
+  // const data = rawData()
+  const data = conHtml;
   var restaurantsNames = [];
   var totalReviews = [];
   var Ratings = [];
   var cuisines = [];
   var feedbacks = [];
-
-  data.then(function (result) {
-    const $ = cheerio.load(result);
-    $(".YtrWs .RfBGI").each(function () {
-      restaurantsNames.push($(this).text().trim());
-    });
-    // console.log(restaurantsNames.slice(0, 11));
-
-    $(".YtrWs .IiChw").each(function () {
-      totalReviews.push($(this).text().trim());
-    });
-    // console.log(totalReviews.slice(0, 11));
-
-    $(".YtrWs .LBKCf svg").each(function () {
-      Ratings.push($(this).attr("aria-label"));
-    });
-    // console.log(Ratings.slice(0, 11));
-
-    $(".YtrWs .bAdrM").each(function () {
-      cuisines.push($(this).find(".ABgbd").html());
-    });
-    // console.log(cuisines.slice(0, 11));
-
-    $(".YtrWs .fnrKq").each(function () {
-      feedbacks.push($(this).text().trim());
-    });
-    // console.log(feedbacks.slice(0, 11));
+  var images = [];
+  const $ = cheerio.load(data);
+  $(".YtrWs .RfBGI").each(function () {
+    restaurantsNames.push($(this).text().trim());
   });
-  const name = new Array(restaurantsNames);
+  // console.log(restaurantsNames.slice(0, 11));
 
-  // for (let i = 0; i < restaurantsNames.length; i++) {
-  //   console.log(restaurantsNames[i]);
-  // }
-  var rr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  $(".YtrWs .IiChw").each(function () {
+    totalReviews.push($(this).text().trim());
+  });
+  // console.log(totalReviews.slice(0, 11));
+
+  $(".YtrWs .LBKCf svg").each(function () {
+    Ratings.push($(this).attr("aria-label"));
+  });
+  // console.log(Ratings.slice(0, 11));
+
+  $(".YtrWs .bAdrM").each(function () {
+    cuisines.push($(this).find(".ABgbd").html());
+  });
+  // console.log(cuisines.slice(0, 11));
+
+  $(".YtrWs .fnrKq").each(function () {
+    feedbacks.push($(this).text().trim());
+  });
+
+  $(".YtrWs .zHxHb").each(function () {
+    images.push($(this).html());
+  });
+
+  restaurantsNames = restaurantsNames.slice(0, 10);
+  totalReviews = totalReviews.slice(0, 10);
+  Ratings = Ratings.slice(0, 10);
+  cuisines = cuisines.slice(0, 10);
+  feedbacks = feedbacks.slice(0, 10);
+  var times = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  Ratings = Ratings.map((val) => {
+    return val.slice(0, 3);
+  });
 
   return (
     <div className={classes.restaurantsHome}>
@@ -72,20 +79,83 @@ function Restaurants() {
           <h1>Food Court</h1>
         </Link>
       </div>
-      <div className={classes.restaurantsList}>
-        <h1 className={classes.name}>Hey This is Restaurants List</h1>
-        <div className={classes.listItems}>
-          {console.log(restaurantsNames)}
-          {restaurantsNames.map(function (val, idx) {
-            return (
-              <div key={idx} className={classes.dataItem}>
-                {val}
-              </div>
-            );
-          })}
+      {/* <h1 className={classes.name}>Hey This is Restaurants List</h1> */}
+      <div className={classes.second}>
+        <div className={classes.restaurantsList}>
+          <div className={classes.listItems}>
+            {times.map(function (val, idx) {
+              return (
+                <div key={idx} className={classes.dataItem}>
+                  <p>
+                    <span className={classes.restaurantNames}>
+                      {" "}
+                      {restaurantsNames[idx]}
+                    </span>
+                  </p>
+                  <p>
+                    <span className={classes.categories}>Total Reviews: </span>
+                    {totalReviews[idx]}
+                  </p>
+                  <p>
+                    {" "}
+                    <span className={classes.categories}>Rating: </span>
+                    {Ratings[idx]}
+                  </p>
+                  <p>
+                    {" "}
+                    <span className={classes.categories}>Cuisines: </span>
+                    {cuisines[idx]}
+                  </p>
+                  <p>
+                    <span className={classes.categories}>Feedbacks: </span>
+                    {feedbacks[idx]}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
   );
 }
 export default Restaurants;
+// data.then(function (result) {
+//   const $ = cheerio.load(result);
+//   $(".YtrWs .RfBGI").each(function () {
+//     restaurantsNames.push($(this).text().trim());
+//   });
+//   // console.log(restaurantsNames.slice(0, 11));
+
+//   $(".YtrWs .IiChw").each(function () {
+//     totalReviews.push($(this).text().trim());
+//   });
+//   // console.log(totalReviews.slice(0, 11));
+
+//   $(".YtrWs .LBKCf svg").each(function () {
+//     Ratings.push($(this).attr("aria-label"));
+//   });
+//   // console.log(Ratings.slice(0, 11));
+
+//   $(".YtrWs .bAdrM").each(function () {
+//     cuisines.push($(this).find(".ABgbd").html());
+//   });
+//   // console.log(cuisines.slice(0, 11));
+
+//   $(".YtrWs .fnrKq").each(function () {
+//     feedbacks.push($(this).text().trim());
+//   });
+//   // console.log(feedbacks.slice(0, 11));
+// });
+
+// {
+//   /* {restaurantsNames.map(function (val, idx) {
+//             return (
+//               <div key={idx} className={classes.dataItem}>
+//                 <div>
+//                   <p>{val}</p>
+//                 </div>
+//               </div>
+//             );
+//           })} */
+// }

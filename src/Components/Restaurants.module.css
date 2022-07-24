@@ -7,22 +7,16 @@ body {
   color: black;
 }
 .restaurantsHome {
-  /* background-image: url("../assets/bg_8.jpg");
-  min-height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
-  color: white;
-  display: flex;
-  flex-direction: column;
-}
-.second {
   background-image: url("../assets/bg_8.jpg");
   min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
+
 .restaurantsList {
   margin-top: 10%;
   margin-left: 10%;
@@ -79,4 +73,7 @@ img {
 }
 .restaurantNames {
   font-weight: bold;
+}
+.load {
+  color: black;
 }

@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import cheerio from "cheerio";
 import axios from "axios";
-
+import Loader from "./Loader";
 import classes from "./Restaurants.module.css";
 import img from "../assets/head_bg.png";
 
 function Restaurants() {
+  const [loading, setLoading] = useState(true);
   const [conHtml, setConHtml] = useState("");
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+  }, []);
   useEffect(() => {
     rawData();
   }, []);
@@ -71,51 +77,58 @@ function Restaurants() {
 
   return (
     <div className={classes.restaurantsHome}>
-      <div className={classes.navBar}>
-        <Link to="/" className={classes.imgLink}>
-          <img src={img} alt="none" width />
-        </Link>
-        <Link to="/" className={classes.title}>
-          <h1>Food Court</h1>
-        </Link>
-      </div>
-      {/* <h1 className={classes.name}>Hey This is Restaurants List</h1> */}
-      <div className={classes.second}>
-        <div className={classes.restaurantsList}>
-          <div className={classes.listItems}>
-            {times.map(function (val, idx) {
-              return (
-                <div key={idx} className={classes.dataItem}>
-                  <p>
-                    <span className={classes.restaurantNames}>
-                      {" "}
-                      {restaurantsNames[idx]}
-                    </span>
-                  </p>
-                  <p>
-                    <span className={classes.categories}>Total Reviews: </span>
-                    {totalReviews[idx]}
-                  </p>
-                  <p>
-                    {" "}
-                    <span className={classes.categories}>Rating: </span>
-                    {Ratings[idx]}
-                  </p>
-                  <p>
-                    {" "}
-                    <span className={classes.categories}>Cuisines: </span>
-                    {cuisines[idx]}
-                  </p>
-                  <p>
-                    <span className={classes.categories}>Feedbacks: </span>
-                    {feedbacks[idx]}
-                  </p>
-                </div>
-              );
-            })}
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <div className={classes.navBar}>
+            <Link to="/" className={classes.imgLink}>
+              <img src={img} alt="none" width />
+            </Link>
+            <Link to="/" className={classes.title}>
+              <h1>Food Court</h1>
+            </Link>
+          </div>
+          <div className={classes.second}>
+            <div className={classes.restaurantsList}>
+              <div className={classes.listItems}>
+                {times.map(function (val, idx) {
+                  return (
+                    <div key={idx} className={classes.dataItem}>
+                      <p>
+                        <span className={classes.restaurantNames}>
+                          {" "}
+                          {restaurantsNames[idx]}
+                        </span>
+                      </p>
+                      <p>
+                        <span className={classes.categories}>
+                          Total Reviews:{" "}
+                        </span>
+                        {totalReviews[idx]}
+                      </p>
+                      <p>
+                        {" "}
+                        <span className={classes.categories}>Rating: </span>
+                        {Ratings[idx]}
+                      </p>
+                      <p>
+                        {" "}
+                        <span className={classes.categories}>Cuisines: </span>
+                        {cuisines[idx]}
+                      </p>
+                      <p>
+                        <span className={classes.categories}>Feedbacks: </span>
+                        {feedbacks[idx]}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -159,3 +172,50 @@ export default Restaurants;
 //             );
 //           })} */
 // }
+// eslint-disable-next-line no-lone-blocks
+{
+  /* <div className={classes.navBar}>
+<Link to="/" className={classes.imgLink}>
+  <img src={img} alt="none" width />
+</Link>
+<Link to="/" className={classes.title}>
+  <h1>Food Court</h1>
+</Link>
+</div>
+<div className={classes.second}>
+<div className={classes.restaurantsList}>
+  <div className={classes.listItems}>
+    {times.map(function (val, idx) {
+      return (
+        <div key={idx} className={classes.dataItem}>
+          <p>
+            <span className={classes.restaurantNames}>
+              {" "}
+              {restaurantsNames[idx]}
+            </span>
+          </p>
+          <p>
+            <span className={classes.categories}>Total Reviews: </span>
+            {totalReviews[idx]}
+          </p>
+          <p>
+            {" "}
+            <span className={classes.categories}>Rating: </span>
+            {Ratings[idx]}
+          </p>
+          <p>
+            {" "}
+            <span className={classes.categories}>Cuisines: </span>
+            {cuisines[idx]}
+          </p>
+          <p>
+            <span className={classes.categories}>Feedbacks: </span>
+            {feedbacks[idx]}
+          </p>
+        </div>
+      );
+    })}
+  </div>
+</div>
+</div> */
+}

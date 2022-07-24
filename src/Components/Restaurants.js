@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import cheerio from "cheerio";
 import axios from "axios";
 import Loader from "./Loader";
 import classes from "./Restaurants.module.css";
 import img from "../assets/head_bg.png";
 
-function Restaurants() {
+function Restaurants(props) {
+  const location = useLocation();
+  console.log("location:-", location.state.value);
   const [loading, setLoading] = useState(true);
   const [conHtml, setConHtml] = useState("");
   useEffect(() => {

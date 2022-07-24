@@ -79,6 +79,32 @@ input:focus {
   height: max-content;
 }
 .new {
+  margin-left: 3px;
+  margin-top: 3px;
   width: 100%;
   height: 50%;
+}
+.dropdown {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  margin-top: 3px;
+  border-radius: 5px;
+  height: max-content;
+}
+.dropdownRow {
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 0;
+  border-bottom: 1px solid;
+  font-size: large;
+}
+.dropdown:empty {
+  border: none;
+}
+.searchInner {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
 }

@@ -36,7 +36,7 @@ function Restaurants(props) {
   }, []);
   useEffect(() => {
     rawData();
-  }, []);
+  });
   // console.log("this is from outside:-", cityname);
 
   const rawData = () => {
